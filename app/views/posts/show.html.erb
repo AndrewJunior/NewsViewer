@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+<%= link_to "Изменить", edit_post_path(@post)%>
+<%= link_to "Удалить", post_path(@post), method: :delete, data: {confirm: 'Вы уверены?'}%>
+<p><%=@post.body%></p>
+ 
+<h2>Комментарии</h2>
+<%= render @post.comments%>
+<div id="error" style="display:none">Неверный формат имени!</div>
+<h2>Добавить комментарий:</h2>
+<%= render "comments/form" %>
