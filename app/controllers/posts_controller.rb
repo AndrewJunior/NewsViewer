@@ -2,17 +2,24 @@ class PostsController < ApplicationController
   http_basic_authenticate_with :name => "123", :password => "123", :except => [:index, :show]
 
   before_action :set_post, only: [ :show, :edit,:update, :destroy]
+  attr_reader :model
+
+  def initialize(model: Post)
+    super()
+    @model = model
+  end
+  
   def index
-    @posts = Post.all
+    @posts = model.all
   end
   def show
     @comment = Comment.new(post_id: @post.id) 
   end 
   def new
-    @post = Post.new
+    @post = model.new
   end
   def create
-    @post=Post.new(post_params)
+    @post=model.new(post_params)
     if @post.save
       redirect_to @post
     else
@@ -38,6 +45,6 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title,:namesummary,:body, :all_tags)
   end
   def set_post
-    @post = Post.find(params[:id])
+    @post = model.find(params[:id])
   end
 end
