@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   
   def index
     @posts = model.all
+      respond_to do |format|
+        format.html { render 'index'  }
+        format.xlsx { render xlsx: 'download', filename: "payments.xlsx"}
+      end
   end
   def show
     @comment = Comment.new(post_id: @post.id) 
