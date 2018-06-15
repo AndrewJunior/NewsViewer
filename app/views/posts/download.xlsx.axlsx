@@ -7,7 +7,7 @@ wb.add_worksheet(name: "Posts") do |sheet|
           pane.y_split = 1
           pane.x_split = 1
         end
-    @trainings.each do |post|
-        sheet.add_row [post.name, post.namesummary, post.body]
+    @posts.each do |post|
+        sheet.add_row [post.title, post.namesummary, post.body]
     end
 end

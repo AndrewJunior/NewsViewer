@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @posts = model.all
       respond_to do |format|
         format.html { render 'index'  }
-        format.xlsx { render xlsx: 'download', filename: "payments.xlsx"}
+        format.xlsx { render xlsx: 'download', filename: "posts.xlsx"}
       end
   end
   def show
