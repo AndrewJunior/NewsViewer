@@ -10,6 +10,7 @@ ru:
         title: 'Название'
         namesummary: 'Описание'
         body: 'Содержание'
+        all_tags: 'Теги'
     errors: 
       messages:
         blank: 'не может быть пустым'

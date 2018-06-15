@@ -10,4 +10,7 @@
     <section class="post-summary"> 
         <%=post.namesummary%>
     </section>
+    <section class="footer-summary"> 
+        <%=raw post.tags.map(&:name).map{|t| link_to t, tag_path(t), class: 'tag tag_primary'}.join(' ')%>
+    </section>
 </article>
